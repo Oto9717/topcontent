@@ -19,7 +19,6 @@ class MoviesDeserializer : JsonDeserializer<MoviesResponse> {
         jsonObject?.let{
             if(jsonObject.has("results")){
                 val totalPages : Int = jsonObject.get("total_pages").asInt
-
                 val moviesList : ArrayList<MovieDto> = arrayListOf()
                 val dataJson = jsonObject["results"].asJsonArray
                 dataJson.forEach {
@@ -27,10 +26,9 @@ class MoviesDeserializer : JsonDeserializer<MoviesResponse> {
                         val movieDto = Gson().fromJson(it, MovieDto::class.java)
                         moviesList.add(movieDto)
                     }catch (e : Exception){
-                        Log.i("myapp", "MoviesDeserializer deserialize error: ${e.message}")
+                        Log.i("MoviesDeserializer", "MoviesDeserializer deserialize error: ${e.message}")
                     }
                 }
-
                 return MoviesResponse.Success(moviesList, totalPages)
             }
         }

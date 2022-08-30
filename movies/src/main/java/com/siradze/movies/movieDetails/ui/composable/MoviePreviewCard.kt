@@ -25,7 +25,6 @@ fun MoviePreviewCard(movie : Movie?, modifier: Modifier = Modifier, onClick : (M
         Modifier.placeholder(
             visible = movie == null,
             color = placeHolderColor,
-            // optional, defaults to RectangleShape
             shape = RoundedCornerShape(4.dp),
             highlight = PlaceholderHighlight.shimmer(
                 highlightColor = Color.White,

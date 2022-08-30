@@ -29,10 +29,7 @@ fun BottomBar(navController: NavHostController) {
 
         bottomBarItems.forEach { screen ->
 
-
-
             BottomNavigationItem(
-
                 icon = { Icon(imageVector = ImageVector.vectorResource(id = screen.icon), contentDescription = null) },
                 selected = currentDestination?.hierarchy?.any { it.route == screen.route } == true,
                 selectedContentColor = Color.Black,

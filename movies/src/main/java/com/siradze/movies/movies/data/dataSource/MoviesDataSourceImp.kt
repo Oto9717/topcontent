@@ -20,10 +20,8 @@ class MoviesDataSourceImp(private val moviesApi: MoviesApi) : MoviesDataSource {
                 }
             }
         }catch (e : NoConnectivityException){
-            e.printStackTrace()
             Response.Error(e.message, Reason.NoConnection)
         }catch (e : Exception){
-            e.printStackTrace()
             Response.Error(e.message.toString())
         }
     }
@@ -40,10 +38,8 @@ class MoviesDataSourceImp(private val moviesApi: MoviesApi) : MoviesDataSource {
                 }
             }
         }catch (e : NoConnectivityException){
-            e.printStackTrace()
             Response.Error(e.message, Reason.NoConnection)
         }catch (e : Exception){
-            e.printStackTrace()
             Response.Error(e.message.toString())
         }
     }

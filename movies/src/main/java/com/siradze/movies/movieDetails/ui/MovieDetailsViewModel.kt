@@ -9,12 +9,10 @@ import com.siradze.movies.data.model.Movie
 import com.siradze.movies.movieDetails.data.MovieDetailsRepository
 import com.siradze.movies.movieDetails.ui.mvi.MovieDetailsEvent
 import com.siradze.movies.movieDetails.ui.mvi.MovieDetailsState
-import com.siradze.movies.movies.ui.mvi.MoviesListState
 import com.siradze.movies.util.Reason
 import com.siradze.movies.util.Response
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch

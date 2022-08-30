@@ -25,7 +25,7 @@ class SimilarMoviesDeserializer : JsonDeserializer<SimilarMoviesResponse> {
                         val movieDto = Gson().fromJson(it, MovieDto::class.java)
                         moviesList.add(movieDto)
                     }catch (e : Exception){
-                        Log.i("myapp", "MoviesDeserializer deserialize error: ${e.message}")
+                        Log.i("SimilarMoviesDeserializer", "MoviesDeserializer deserialize error: ${e.message}")
                     }
                 }
                 return SimilarMoviesResponse.Success(moviesList)

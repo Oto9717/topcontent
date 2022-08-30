@@ -16,7 +16,6 @@ class ErrorResponseInterceptor : Interceptor {
         } else {
             val jsonObject = response.body()?.string()?.let { JsonParser().parse(it).asJsonObject; }
             jsonObject?.let{
-
                 if(jsonObject.has("success") && !jsonObject["success"].asBoolean){
                     val message : String = try{ jsonObject.get("status_message").asString }catch (e : Exception){ ""}
                     throw ErrorResponseException(code = response.code(), errors = listOf(message))

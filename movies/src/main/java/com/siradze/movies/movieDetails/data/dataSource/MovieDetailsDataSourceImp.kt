@@ -1,13 +1,10 @@
 package com.siradze.movies.movieDetails.data.dataSource
-
-import com.siradze.movies.data.api.ApiStrings
 import com.siradze.movies.data.api.exceptions.NoConnectivityException
 import com.siradze.movies.data.model.Movie
 import com.siradze.movies.movieDetails.data.api.MovieDetailsApi
 import com.siradze.movies.movieDetails.data.api.MovieDetailsResponse
 import com.siradze.movies.movieDetails.data.api.SimilarMoviesResponse
 import com.siradze.movies.movieDetails.data.model.MovieDetails
-import com.siradze.movies.movies.data.api.MoviesResponse
 import com.siradze.movies.util.Reason
 import com.siradze.movies.util.Response
 
@@ -24,10 +21,8 @@ class MovieDetailsDataSourceImp(private val api : MovieDetailsApi) : MovieDetail
                 }
             }
         }catch (e : NoConnectivityException){
-            e.printStackTrace()
             Response.Error(e.message, Reason.NoConnection)
         }catch (e : Exception){
-            e.printStackTrace()
             Response.Error(e.message.toString())
         }
     }
@@ -44,10 +39,8 @@ class MovieDetailsDataSourceImp(private val api : MovieDetailsApi) : MovieDetail
                 }
             }
         }catch (e : NoConnectivityException){
-            e.printStackTrace()
             Response.Error(e.message, Reason.NoConnection)
         }catch (e : Exception){
-            e.printStackTrace()
             Response.Error(e.message.toString())
         }
     }
