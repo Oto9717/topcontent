@@ -1,6 +1,8 @@
 package com.siradze.movies.movies.di
 
 import com.google.gson.GsonBuilder
+import com.siradze.movies.di.MoviesNetworkBaseUrl
+import com.siradze.movies.di.MoviesNetworkOkHttpClient
 import com.siradze.movies.movies.data.MoviesRepository
 import com.siradze.movies.movies.data.MoviesRepositoryImp
 import com.siradze.movies.movies.data.api.MoviesApi
@@ -33,14 +35,16 @@ object MoviesModule {
     }
     @Singleton
     @Provides
-    fun provideMoviesApi(@Named("movies_retrofit") retrofit: Retrofit) : MoviesApi {
+    fun provideMoviesApi(@MoviesRetrofit retrofit: Retrofit) : MoviesApi {
         return retrofit.create(MoviesApi::class.java)
     }
 
     @Singleton
     @Provides
-    @Named("movies_retrofit")
-    fun providesRetrofit(@Named("base_url") baseUrl: String, okHttpClient: OkHttpClient): Retrofit {
+    @MoviesRetrofit
+    fun providesRetrofit(
+        @MoviesNetworkBaseUrl baseUrl: String,
+        @MoviesNetworkOkHttpClient okHttpClient: OkHttpClient): Retrofit {
 
         val customGson = GsonBuilder()
             .registerTypeAdapter(MoviesResponse::class.java, MoviesDeserializer())

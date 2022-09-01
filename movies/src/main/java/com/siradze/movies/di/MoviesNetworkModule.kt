@@ -21,13 +21,14 @@ object MoviesNetworkModule {
 
     @Singleton
     @Provides
-    @Named("base_url")
+    @MoviesNetworkBaseUrl
     fun provideBaseUrl() : String{
         return ApiStrings.base_url
     }
 
     @Singleton
     @Provides
+    @MoviesNetworkOkHttpClient
     fun providesHttpClient(@ApplicationContext appContext: Context) : OkHttpClient {
         return OkHttpClient.Builder().addInterceptor { chain ->
             val original = chain.request()
