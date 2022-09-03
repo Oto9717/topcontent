@@ -1,4 +1,4 @@
-package com.siradze.movies.movieDetails.data.api
+package com.siradze.movies.moviesList.data.api
 
 import android.util.Log
 import com.google.gson.Gson
@@ -9,15 +9,16 @@ import com.siradze.movies.data.api.exceptions.ErrorResponseException
 import com.siradze.movies.data.model.dto.MovieDto
 import java.lang.reflect.Type
 
-internal class SimilarMoviesDeserializer : JsonDeserializer<SimilarMoviesResponse> {
+internal class MoviesListDeserializer : JsonDeserializer<MoviesListResponse> {
     override fun deserialize(
         json: JsonElement?,
         typeOfT: Type?,
         context: JsonDeserializationContext?
-    ): SimilarMoviesResponse {
+    ): MoviesListResponse {
         val jsonObject = json?.asJsonObject
         jsonObject?.let{
             if(jsonObject.has("results")){
+                val totalPages : Int = jsonObject.get("total_pages").asInt
                 val moviesList : ArrayList<MovieDto> = arrayListOf()
                 val dataJson = jsonObject["results"].asJsonArray
                 dataJson.forEach {
@@ -25,12 +26,12 @@ internal class SimilarMoviesDeserializer : JsonDeserializer<SimilarMoviesRespons
                         val movieDto = Gson().fromJson(it, MovieDto::class.java)
                         moviesList.add(movieDto)
                     }catch (e : Exception){
-                        Log.i("SimilarMoviesDeserializer", "MoviesDeserializer deserialize error: ${e.message}")
+                        Log.i("MoviesDeserializer", "MoviesDeserializer deserialize error: ${e.message}")
                     }
                 }
-                return SimilarMoviesResponse.Success(moviesList)
+                return MoviesListResponse.Success(moviesList, totalPages)
             }
         }
-        return SimilarMoviesResponse.Error(ErrorResponseException(403, arrayListOf("invalid format")))
+        return MoviesListResponse.Error(ErrorResponseException(403, arrayListOf("invalid format")))
     }
 }

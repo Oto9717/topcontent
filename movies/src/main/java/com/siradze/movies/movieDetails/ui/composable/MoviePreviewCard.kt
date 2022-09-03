@@ -12,13 +12,13 @@ import androidx.compose.ui.unit.dp
 import com.google.accompanist.placeholder.PlaceholderHighlight
 import com.google.accompanist.placeholder.placeholder
 import com.google.accompanist.placeholder.shimmer
-import com.siradze.movies.data.model.Movie
+import com.siradze.movies.domain.model.Movie
 import com.skydoves.landscapist.CircularReveal
 import com.skydoves.landscapist.glide.GlideImage
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun MoviePreviewCard(movie : Movie?, modifier: Modifier = Modifier, onClick : (Movie) -> Unit) {
+internal fun MoviePreviewCard(movie : Movie?, modifier: Modifier = Modifier, onClick : (Movie) -> Unit) {
     val shape = remember { RoundedCornerShape(size = 10.dp) }
     val placeHolderColor = MaterialTheme.colors.secondaryVariant
     val placeholderModifier = remember {

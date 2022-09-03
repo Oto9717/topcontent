@@ -24,7 +24,7 @@ import com.skydoves.landscapist.CircularReveal
 import com.skydoves.landscapist.glide.GlideImage
 
 @Composable
-fun MovieDetailsCard(movieDetails: MovieDetails?, modifier : Modifier = Modifier) {
+internal fun MovieDetailsCard(movieDetails: MovieDetails?, modifier : Modifier = Modifier) {
 
 
     val placeHolderColor = MaterialTheme.colors.secondaryVariant

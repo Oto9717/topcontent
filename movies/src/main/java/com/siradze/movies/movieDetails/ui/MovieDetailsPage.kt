@@ -22,7 +22,7 @@ import com.siradze.movies.movieDetails.ui.composable.MoviePreviewCard
 
 
 @Composable
-fun MovieDetailsPage(navController : NavController, viewModel: MovieDetailsViewModel,
+internal fun MovieDetailsPage(navController : NavController, viewModel: MovieDetailsViewModel,
                      type : MoviesType, id:String) {
     LaunchedEffect(key1 = id){
         viewModel.event(MovieDetailsEvent.Load(type,id))

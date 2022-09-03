@@ -2,8 +2,8 @@ package com.siradze.movies.movieDetails.di
 import com.google.gson.GsonBuilder
 import com.siradze.movies.di.MoviesNetworkBaseUrl
 import com.siradze.movies.di.MoviesNetworkOkHttpClient
-import com.siradze.movies.movieDetails.data.MovieDetailsRepository
-import com.siradze.movies.movieDetails.data.MovieDetailsRepositoryImp
+import com.siradze.movies.movieDetails.domain.repository.MovieDetailsRepository
+import com.siradze.movies.movieDetails.data.repository.MovieDetailsRepositoryImp
 import com.siradze.movies.movieDetails.data.api.*
 import com.siradze.movies.movieDetails.data.dataSource.MovieDetailsDataSource
 import com.siradze.movies.movieDetails.data.dataSource.MovieDetailsDataSourceImp
@@ -14,12 +14,11 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object MovieDetailsModule {
+internal object MovieDetailsModule {
 
     @Singleton
     @Provides

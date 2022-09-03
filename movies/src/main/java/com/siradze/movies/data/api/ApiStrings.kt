@@ -2,7 +2,7 @@ package com.siradze.movies.data.api
 
 import com.siradze.movies.BuildConfig
 
-object ApiStrings {
+internal object ApiStrings {
     const val base_url =  BuildConfig.BASE_URL
     const val api_key = BuildConfig.API_KEY
     const val preview_image_url =  BuildConfig.IMAGE_URL + "w200/"

@@ -8,7 +8,7 @@ import com.siradze.movies.data.api.exceptions.ErrorResponseException
 import com.siradze.movies.movieDetails.data.model.dto.MovieDetailsDto
 import java.lang.reflect.Type
 
-class MovieDetailsDeserializer : JsonDeserializer<MovieDetailsResponse> {
+internal class MovieDetailsDeserializer : JsonDeserializer<MovieDetailsResponse> {
     override fun deserialize(
         json: JsonElement?,
         typeOfT: Type?,

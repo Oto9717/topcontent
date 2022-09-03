@@ -7,16 +7,16 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.siradze.movies.movieDetails.ui.MovieDetailsPage
 import com.siradze.movies.movieDetails.ui.MovieDetailsViewModel
-import com.siradze.movies.movies.ui.MoviesPage
-import com.siradze.movies.movies.ui.MoviesViewModel
+import com.siradze.movies.moviesList.ui.MoviesListPage
+import com.siradze.movies.moviesList.ui.MoviesListViewModel
 
 @Composable
 fun MoviesNavigation(type : MoviesType) {
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = "movies") {
         composable("movies") {
-            val viewModel = hiltViewModel<MoviesViewModel>()
-            MoviesPage(navController,viewModel, type)
+            val viewModel = hiltViewModel<MoviesListViewModel>()
+            MoviesListPage(navController,viewModel, type)
         }
         composable("movie_details/{id}"){
             val id = it.arguments?.getString("id")

@@ -4,7 +4,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-interface MovieDetailsApi {
+internal interface MovieDetailsApi {
     @GET("{type}/{id}")
     suspend fun getDetails(
         @Path(value = "type", encoded = true) type : String,

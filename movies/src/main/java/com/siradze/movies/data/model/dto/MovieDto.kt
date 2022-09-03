@@ -1,9 +1,9 @@
 package com.siradze.movies.data.model.dto
 
 import com.siradze.movies.data.api.ApiStrings
-import com.siradze.movies.data.model.Movie
+import com.siradze.movies.domain.model.Movie
 
-data class MovieDto(
+internal data class MovieDto(
     val backdrop_path: String,
     val first_air_date: String,
     val genre_ids: List<Int>,

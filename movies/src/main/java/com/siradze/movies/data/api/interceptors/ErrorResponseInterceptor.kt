@@ -1,13 +1,12 @@
 package com.siradze.movies.data.api.interceptors
 
-import com.google.gson.Gson
 import com.google.gson.JsonParser
 import com.siradze.movies.data.api.exceptions.ErrorResponseException
 import okhttp3.Interceptor
 import okhttp3.Request
 import okhttp3.Response
 
-class ErrorResponseInterceptor : Interceptor {
+internal class ErrorResponseInterceptor : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val builder: Request.Builder = chain.request().newBuilder()
         val response = chain.proceed(builder.build())
