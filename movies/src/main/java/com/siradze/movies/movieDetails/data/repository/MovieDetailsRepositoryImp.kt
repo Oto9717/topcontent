@@ -2,7 +2,7 @@ package com.siradze.movies.movieDetails.data.repository
 
 import com.siradze.movies.domain.model.Movie
 import com.siradze.movies.movieDetails.data.dataSource.MovieDetailsDataSource
-import com.siradze.movies.movieDetails.data.model.MovieDetails
+import com.siradze.movies.movieDetails.domain.model.MovieDetails
 import com.siradze.movies.movieDetails.domain.repository.MovieDetailsRepository
 import com.siradze.movies.util.Response
 import kotlinx.coroutines.Dispatchers

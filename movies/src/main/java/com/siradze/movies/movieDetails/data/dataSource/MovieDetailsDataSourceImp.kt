@@ -4,7 +4,7 @@ import com.siradze.movies.domain.model.Movie
 import com.siradze.movies.movieDetails.data.api.MovieDetailsApi
 import com.siradze.movies.movieDetails.data.api.MovieDetailsResponse
 import com.siradze.movies.movieDetails.data.api.SimilarMoviesResponse
-import com.siradze.movies.movieDetails.data.model.MovieDetails
+import com.siradze.movies.movieDetails.domain.model.MovieDetails
 import com.siradze.movies.util.Reason
 import com.siradze.movies.util.Response
 

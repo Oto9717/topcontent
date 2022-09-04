@@ -1,6 +1,6 @@
 package com.siradze.movies.movieDetails.ui.mvi
 
-import com.siradze.movies.movieDetails.data.model.MovieDetails
+import com.siradze.movies.movieDetails.domain.model.MovieDetails
 
 internal sealed class MovieDetailsState {
     object Loading : MovieDetailsState()

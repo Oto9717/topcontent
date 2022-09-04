@@ -1,6 +1,6 @@
 package com.siradze.movies.movieDetails.domain.repository
 
-import com.siradze.movies.movieDetails.data.model.MovieDetails
+import com.siradze.movies.movieDetails.domain.model.MovieDetails
 import com.siradze.movies.domain.model.Movie
 import com.siradze.movies.util.Response
 

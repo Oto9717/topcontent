@@ -19,7 +19,7 @@ import com.google.accompanist.placeholder.PlaceholderHighlight
 import com.google.accompanist.placeholder.placeholder
 import com.google.accompanist.placeholder.shimmer
 import com.siradze.movies.R
-import com.siradze.movies.movieDetails.data.model.MovieDetails
+import com.siradze.movies.movieDetails.domain.model.MovieDetails
 import com.skydoves.landscapist.CircularReveal
 import com.skydoves.landscapist.glide.GlideImage
 
@@ -59,7 +59,7 @@ internal fun MovieDetailsCard(movieDetails: MovieDetails?, modifier : Modifier =
             Row(Modifier.fillMaxWidth(),horizontalArrangement = Arrangement.SpaceBetween) {
                 Row(modifier = placeholderModifier){
                     Text(text = "${stringResource(id = R.string.rating)}: ", style = MaterialTheme.typography.subtitle1,)
-                    Text(text = movieDetails?.vote_average.toString(), style = MaterialTheme.typography.subtitle1,)
+                    Text(text = movieDetails?.voteAverage.toString(), style = MaterialTheme.typography.subtitle1,)
                     Icon(modifier = Modifier
                         .width(20.dp)
                         .height(20.dp),
@@ -69,7 +69,7 @@ internal fun MovieDetailsCard(movieDetails: MovieDetails?, modifier : Modifier =
                 }
                 Row(modifier = placeholderModifier){
                     Text(text = "${stringResource(id = R.string.vote_count)}: ", style = MaterialTheme.typography.subtitle1,)
-                    Text(text = movieDetails?.vote_count.toString(), style = MaterialTheme.typography.subtitle1,)
+                    Text(text = movieDetails?.voteCount.toString(), style = MaterialTheme.typography.subtitle1,)
                     Icon(modifier = Modifier
                         .width(20.dp)
                         .height(20.dp),

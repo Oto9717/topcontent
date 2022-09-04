@@ -1,4 +1,4 @@
-package com.siradze.movies.movieDetails.data.model
+package com.siradze.movies.movieDetails.domain.model
 
 data class MovieDetails(
     val id: Int,
@@ -6,6 +6,6 @@ data class MovieDetails(
     val overview: String,
     val posterPath: String,
     val backdropPath: String,
-    val vote_average: Double,
-    val vote_count: Int
+    val voteAverage: Double,
+    val voteCount: Int
 )
