@@ -10,9 +10,9 @@ import com.siradze.movies.util.Response
 
 internal class MovieDetailsDataSourceImp(private val api : MovieDetailsApi) : MovieDetailsDataSource {
     override suspend fun getMovieDetails(type : String, id : String): Response<MovieDetails> {
-        val response = api.getDetails(type, id)
+
         return responseHandler {
-            when (response) {
+            when (val response = api.getDetails(type, id)) {
                 is MovieDetailsResponse.Success -> {
                     Response.Success(response.movieDetail.toMovieDetail())
                 }
@@ -24,11 +24,8 @@ internal class MovieDetailsDataSourceImp(private val api : MovieDetailsApi) : Mo
     }
 
     override suspend fun getSimilarMovies(type : String, id : String, page: Int): Response<List<Movie>> {
-
-        val response = api.getSimilarMovies(type, id, page)
-
         return responseHandler{
-            when (response) {
+            when (val response = api.getSimilarMovies(type, id, page)) {
                 is SimilarMoviesResponse.Success -> {
                     val list = response.list.map { it.toMovie() }
                     Response.Success(list)
@@ -41,7 +38,7 @@ internal class MovieDetailsDataSourceImp(private val api : MovieDetailsApi) : Mo
 
     }
 
-    private fun <T> responseHandler(function : () -> Response<T>) : Response<T>{
+    private suspend fun <T> responseHandler(function : suspend () -> Response<T>) : Response<T>{
         return try {
             function()
         }catch (e : NoConnectivityException){
