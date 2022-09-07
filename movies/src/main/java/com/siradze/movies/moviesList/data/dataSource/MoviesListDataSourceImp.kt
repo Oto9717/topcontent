@@ -9,9 +9,8 @@ import com.siradze.movies.util.Response
 
 internal class MoviesListDataSourceImp(private val moviesListApi: MoviesListApi) : MoviesListDataSource {
     override suspend fun getPopular(type : String, page: Int): Response<MoviesResponseData> {
-        val response = moviesListApi.getPopular(type, page)
         return responseHandler {
-            when (response) {
+            when (val response = moviesListApi.getPopular(type, page)) {
                 is MoviesListResponse.Success -> {
                     val list = response.list.map { it.toMovie() }
                     Response.Success(MoviesResponseData(list, totalPages = response.totalPages))
@@ -24,9 +23,9 @@ internal class MoviesListDataSourceImp(private val moviesListApi: MoviesListApi)
     }
 
     override suspend fun search(type : String, query : String, page : Int): Response<MoviesResponseData> {
-        val response = moviesListApi.search(type, query, page)
+
         return responseHandler {
-            when (response) {
+            when (val response = moviesListApi.search(type, query, page)) {
                 is MoviesListResponse.Success -> {
                     val list = response.list.map { it.toMovie() }
                     Response.Success(MoviesResponseData(list, totalPages = response.totalPages))
@@ -39,7 +38,7 @@ internal class MoviesListDataSourceImp(private val moviesListApi: MoviesListApi)
     }
 
 
-    private fun <T> responseHandler(function : () -> Response<T>) : Response<T>{
+    private suspend fun <T> responseHandler(function : suspend () -> Response<T>) : Response<T>{
         return try {
             function()
         }catch (e : NoConnectivityException){
