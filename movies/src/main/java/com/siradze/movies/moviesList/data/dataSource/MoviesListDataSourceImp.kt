@@ -23,7 +23,6 @@ internal class MoviesListDataSourceImp(private val moviesListApi: MoviesListApi)
     }
 
     override suspend fun search(type : String, query : String, page : Int): Response<MoviesResponseData> {
-
         return responseHandler {
             when (val response = moviesListApi.search(type, query, page)) {
                 is MoviesListResponse.Success -> {
